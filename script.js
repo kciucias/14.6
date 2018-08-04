@@ -1,4 +1,5 @@
 var Counter = React.createClass({
+
     getInitialState: function() {
         return {
             counter: 0
@@ -7,18 +8,55 @@ var Counter = React.createClass({
 
     increment: function() {
         this.setState({
-            counter: this.state.counter - 1
+            counter: this.state.counter + 1
         });
     },
 
+    decrement: function() {
+        this.setState({
+            counter: this.state.counter - 1
+        });
+    },    
+
     render: function() {
-        return React.createElement('div', {onClick: this.increment},
-            React.createElement('button', {}, 'Licznik ' + this.state.counter)
+        return React.createElement('div', {},
+            React.createElement('button', {onClick: this.decrement}, '-'),
+            React.createElement('span', {}, 'Licznik ' + this.state.counter),
+            React.createElement('button', {onClick: this.increment}, '+'),
         );
     }
 });
 
+/*
+componentWillMount: function () {
+    console.log('Component will mount!' );
+},
 
+componentDidMount: function () {
+    console.log( 'Component mounted!');
+},
+
+componentWillReceiveProps: function() {
+    console.log('Component will receive props!');
+},
+
+shouldComponentUpdate: function () {
+    console.log('Should component be updated?');
+},
+    
+componentWillUpdate: function() {
+        console.log('Updating component')
+},
+
+componentDidUpdate: function() {
+    console.log('updated!');
+},
+
+componentWillUnmount: function(){
+    console.log('Component will unmount!');
+},
+
+*/
 var app = React.createElement(Counter);
 
 ReactDOM.render(app, document.getElementById('app'));
