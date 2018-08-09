@@ -18,7 +18,6 @@ var Counter = React.createClass({
         });
     },    
 
-
     componentWillMount: function () {
         console.log('Component will mount!' );
     },
