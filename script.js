@@ -18,6 +18,38 @@ var Counter = React.createClass({
         });
     },    
 
+
+    componentWillMount: function () {
+        console.log('Component will mount!' );
+    },
+
+
+    componentDidMount: function () {
+        console.log( 'Component mounted!');
+    },
+
+    componentWillReceiveProps: function() {
+        console.log('Component will receive props!');
+    },
+
+    /*shouldComponentUpdate: function () {
+        console.log('Should component be updated?');
+        return false;
+    }, */
+        
+    componentWillUpdate: function() {
+            console.log('Updating component')
+    },
+
+    componentDidUpdate: function() {
+        console.log('updated!');
+    },
+
+    componentWillUnmount: function(){
+        console.log('Component will unmount!');
+    },
+
+
     render: function() {
         return React.createElement('div', {},
             React.createElement('button', {onClick: this.decrement}, '-'),
@@ -25,38 +57,11 @@ var Counter = React.createClass({
             React.createElement('button', {onClick: this.increment}, '+'),
         );
     }
+
+
 });
 
-/*
-componentWillMount: function () {
-    console.log('Component will mount!' );
-},
 
-componentDidMount: function () {
-    console.log( 'Component mounted!');
-},
-
-componentWillReceiveProps: function() {
-    console.log('Component will receive props!');
-},
-
-shouldComponentUpdate: function () {
-    console.log('Should component be updated?');
-},
-    
-componentWillUpdate: function() {
-        console.log('Updating component')
-},
-
-componentDidUpdate: function() {
-    console.log('updated!');
-},
-
-componentWillUnmount: function(){
-    console.log('Component will unmount!');
-},
-
-*/
 var app = React.createElement(Counter);
 
 ReactDOM.render(app, document.getElementById('app'));
